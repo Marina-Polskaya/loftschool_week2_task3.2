@@ -2,7 +2,7 @@
 
 class Order
 {
-    public function addOrder(int $user_id, string $phone_number, string $address, string $comment) //сделать, чтобы возвращало order_id
+    public function addOrder(int $user_id, string $phone_number, string $address, string $comment) : int
     {
         $db = Db::getInstance();
         $query = "INSERT INTO orders(user_id, phone_number, address, comment, created_at) VALUES(:user_id, :phone_number, :address, :comment, :created_at)";
@@ -58,10 +58,5 @@ class Order
         echo 'Спасибо, ваш заказ будет доставлен по адресу: ' . $address . '<br />';
         echo 'Номер вашего заказа: #' . $order_id . '<br />';
         echo 'Это ваш ' . $howManyOrders . '-й заказ.<br />';
-    }
-    
-    public function getOrderId()
-    {
-        
     }
 }
